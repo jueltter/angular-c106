@@ -1,0 +1,8 @@
+# Normalize all text files to LF in the repo
+* text=auto
+
+# Optional: ensure specific file types are treated as text
+*.ts   text
+*.yml  text
+*.sh   text eol=lf
+*.bat  text eol=crlf
