@@ -1,5 +1,5 @@
 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-    @for (item of items; track $index) {
-        <gif-list-item />
+    @for (item of items(); track $index) {
+        <gif-list-item [gif]="item" />
     }
 </div>

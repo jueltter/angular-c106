@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { ListItemComponent } from "../list-item/list-item.component";
 
 @Component({
@@ -9,7 +9,7 @@ import { ListItemComponent } from "../list-item/list-item.component";
 })
 export class ListComponent {
 
-  items = [1, 2, 3, 4, 5];
+  items = input.required<string[]>();
 
 
 }
