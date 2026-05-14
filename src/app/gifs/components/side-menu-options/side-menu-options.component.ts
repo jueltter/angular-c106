@@ -26,7 +26,7 @@ export class SideMenuOptionsComponent {
     key => ({
       label: key,
       subLabel: `Resultados para ${key}`,
-      route: `/dashboard/search/${key}`,
+      route: `/dashboard/history/${key}`,
       icon: 'fa-solid fa-clock-rotate-left'
     })
 
