@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from "@angular/router";
+import { GifsService } from '../../services/gifs.service';
 
 
 interface MenuOption {
@@ -17,6 +18,20 @@ interface MenuOption {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SideMenuOptionsComponent {
+
+  gifsService = inject(GifsService);
+
+
+  searchHistoryKeys = computed<MenuOption[]>(() => this.gifsService.searchHistoryKeys().map(
+    key => ({
+      label: key,
+      subLabel: `Resultados para ${key}`,
+      route: `/dashboard/search/${key}`,
+      icon: 'fa-solid fa-clock-rotate-left'
+    })
+
+
+  ));
 
   menuOptions: MenuOption[] = [
     {
