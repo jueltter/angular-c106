@@ -6,4 +6,6 @@ export const environment = {
 
   giphyApiKey: 'Your Giphy API Key',
 
+  giphyApiUrl: 'https://api.giphy.com',
+
 };
