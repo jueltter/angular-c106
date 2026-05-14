@@ -66,5 +66,10 @@ export class GifsService {
 
   }
 
+  getHistoryForQuery(query: string): Gif[] {
+    const key = query.toLowerCase();
+    return this.searchHistory()[key] ?? [];
+  }
+
 
 }

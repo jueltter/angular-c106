@@ -24,9 +24,9 @@ export default class HistoryPageComponent {
 
   ));
 
-  gifs = computed<Gif[]>(() => {
-     const key = this.query()?.toLowerCase() ?? '';
-      return this.gifsService.searchHistory()[key] ?? [];
+  gifsByKey = computed<Gif[]>(() => {
+
+    return this.gifsService.getHistoryForQuery(this.query() ?? '');
 
   });
 
