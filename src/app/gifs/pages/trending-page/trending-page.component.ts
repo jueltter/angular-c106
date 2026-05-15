@@ -4,7 +4,7 @@ import { GifsService } from '../../services/gifs.service';
 
 @Component({
   selector: 'app-trending-page',
-  imports: [ListComponent],
+//  imports: [ListComponent],
   templateUrl: './trending-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -14,7 +14,7 @@ export default class TrendingPageComponent {
 
   gifsService = inject(GifsService);
 
-  scrollDivRef =  viewChild<ElementRef>('groupDiv');
+  scrollDivRef =  viewChild<ElementRef<HTMLDivElement>>('groupDiv');
 
 
    gifs = computed(() => this.gifsService.trendingGifs());
@@ -22,7 +22,16 @@ export default class TrendingPageComponent {
   onScroll($event: Event) {
     const scrollDiv = this.scrollDivRef()?.nativeElement;
 
-    console.log({ scrollDiv });
+    if (!scrollDiv) return;
+
+    const { scrollTop, scrollHeight, clientHeight } = scrollDiv;
+
+    const loadMoreGifs = scrollTop + clientHeight + 300 >= scrollHeight;
+
+    if (loadMoreGifs) {
+      console.log('Load more gifs');
+    }
+
   }
 
 }
