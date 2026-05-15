@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, ElementRef, inject, signal, viewChild } from '@angular/core';
 import { ListComponent } from "../../components/list/list.component";
 import { GifsService } from '../../services/gifs.service';
 
@@ -11,9 +11,18 @@ import { GifsService } from '../../services/gifs.service';
 export default class TrendingPageComponent {
 
 
+
   gifsService = inject(GifsService);
+
+  scrollDivRef =  viewChild<ElementRef>('groupDiv');
 
 
    gifs = computed(() => this.gifsService.trendingGifs());
+
+  onScroll($event: Event) {
+    const scrollDiv = this.scrollDivRef()?.nativeElement;
+
+    console.log({ scrollDiv });
+  }
 
 }
