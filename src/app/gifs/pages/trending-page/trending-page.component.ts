@@ -30,6 +30,7 @@ export default class TrendingPageComponent {
 
     if (loadMoreGifs) {
       console.log('Load more gifs');
+      this.gifsService.loadTrendingGifs();
     }
 
   }
