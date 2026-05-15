@@ -2,42 +2,25 @@
   <gif-list [items]="gifs()"></gif-list>
 </!--section-->
 
-<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-    <div>
-        <img class="h-auto max-w-full rounded-base" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-base" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-base" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-base" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-base" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-base" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-base" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-base" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-base" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-base" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-base" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg" alt="">
-    </div>
-    <div>
-        <img class="h-auto max-w-full rounded-base" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg" alt="">
-    </div>
-</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-5">
 
+  @for (group of gifsService.trendingGifGroup(); track $index) {
+  <div class="grid gap-4">
+    @for (gif of group; track $index) {
+
+    <div>
+      <img class="h-auto max-w-full rounded-base object-cover" [src]="gif.url" [alt]="gif.title">
+    </div>
+
+
+    }
+
+
+
+  </div>
+
+
+
+  }
+
+</div>
